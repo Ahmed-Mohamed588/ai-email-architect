@@ -11,7 +11,7 @@ export async function generateEmail(prompt: string) {
   if (!prompt) return { error: 'Please enter a prompt' };
 
   try {
-    // 1. نكلم الـ AI ونطلب منه MJML حصراً
+    
     const completion = await openai.chat.completions.create({
       messages: [
         {
@@ -25,7 +25,7 @@ export async function generateEmail(prompt: string) {
         },
         { role: "user", content: prompt },
       ],
-      model: "gpt-3.5-turbo", // أو gpt-4o لو حسابك يسمح
+      model: "gpt-3.5-turbo", 
     });
 
     let mjmlCode = completion.choices[0].message.content || '';
